@@ -67,7 +67,7 @@ function getImageUrl(searchTerm, callback, errorCallback) {
     // Parse and process the response from Google Image Search.
     var response = x.response;
     if (!response || !response.responseData || !response.responseData.results ||
-        response.responseData.results.length === 0) {
+      response.responseData.results.length === 0) {
       errorCallback('No response from Google Image search!');
       return;
     }
@@ -78,8 +78,8 @@ function getImageUrl(searchTerm, callback, errorCallback) {
     var width = parseInt(firstResult.tbWidth);
     var height = parseInt(firstResult.tbHeight);
     console.assert(
-        typeof imageUrl == 'string' && !isNaN(width) && !isNaN(height),
-        'Unexpected respose from the Google Image Search API!');
+      typeof imageUrl == 'string' && !isNaN(width) && !isNaN(height),
+      'Unexpected respose from the Google Image Search API!');
     callback(imageUrl, width, height);
   };
   x.onerror = function() {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     getImageUrl(url, function(imageUrl, width, height) {
 
       renderStatus('Search term: ' + url + '\n' +
-          'Google image search result: ' + imageUrl);
+        'Google image search result: ' + imageUrl);
       var imageResult = document.getElementById('image-result');
       // Explicitly set the width/height to minimize the number of reflows. For
       // a single image, this does not matter, but if you're going to embed
